@@ -11,6 +11,7 @@ const Home = () => {
     <div>
       <Navbar />
       <button onClick={notify}>Notify !</button>
+      <input type="reset" onClick={notify} />
       <ToastContainer />
       <Loading />
       Home</div>
