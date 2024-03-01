@@ -40,11 +40,12 @@
       labelHTMLFor?: string
       labelName?: string | number
       notify?: () => void
+      dataInput?: object
     }
 export const Input: React.FC<inputProps> = ({...props}: inputProps) => {
   return (<>
     <label htmlFor={props.labelHTMLFor}>{props.labelName}</label>
-    <input type={props.type} placeholder={props.plaseholder} onClick={props.notify}/>
+    <input type={props.type} placeholder={props.plaseholder} onClick={props.notify} {...props.dataInput}/>
   </>
   )
 }
