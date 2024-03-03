@@ -4,4 +4,4 @@ const Links = [
   { label: "Dashboard", link: "/dashboard" },
 ];
 
-export default Links;
+export default Links

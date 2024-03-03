@@ -1,0 +1,30 @@
+.bodyHome{
+    margin:0;
+    padding:0;
+    /* background: red;
+    height: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100lvw;  
+    height: 100lvh;
+  overflow-x: hidden; */
+  width: 100dvw;
+  height: 100dvh;
+  overflow-x: hidden;
+  /* overflow-y: hidden; */
+}
+containerBody{
+    width: 100%;
+}
+
+.footerHome{
+  background-color: #4d0101;
+  padding: 0px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  height: 200px; 
+  width: 100%;
+}
