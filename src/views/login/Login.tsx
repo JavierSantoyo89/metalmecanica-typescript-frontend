@@ -7,7 +7,7 @@ export default function Login() {
     <div className={styles.bodyLogin}>
       <Navbar />
       <div className={styles.containerForm}>
-        <h1>Login</h1>
+        {/* <h1>Login</h1> */}
         <Form formType="Login" />
       </div>
       <Footer />

@@ -1,6 +1,6 @@
 const Links = [
-  { label: "Home", link: "/" },
   { label: "Login", link: "/login" },
+  { label: "Home", link: "/" },
   { label: "Dashboard", link: "/dashboard" },
 ];
 

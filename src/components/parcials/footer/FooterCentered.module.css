@@ -3,6 +3,7 @@
   background-color: light-dark(
     var(--mantine-color-gray-0),
     var(--mantine-color-dark-6)
+    
   );
   /* margin-top: rem(120px); */
   border-top: rem(1px) solid
