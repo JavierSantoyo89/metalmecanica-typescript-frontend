@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Input } from "../common/Input";
 import style from "./Form.module.css";
+import fetchPostemployee from "../../data/fetchPostEmployee";
 const resetNotify = () => {
   toast("Formulario reseteado");
 };
@@ -15,6 +16,7 @@ interface formTypes {
 type Inputs = {
   user_name: string;
   user_type: string;
+  password: string;
 };
 
 export const Form: React.FC<formTypes> = ({ ...props }: formTypes) => {
@@ -24,7 +26,16 @@ export const Form: React.FC<formTypes> = ({ ...props }: formTypes) => {
     // watch,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+    try {
+      fetchPostemployee(data);
+    } catch {
+      console.log("Error al enviar el formulario");
+    } finally {
+      console.log("Procesada peticion");
+    }
+  };
 
   return (
     <div className={style.loginContainer}>
@@ -41,19 +52,29 @@ export const Form: React.FC<formTypes> = ({ ...props }: formTypes) => {
             {errors.user_name && <span>User field is required</span>}
             <br></br>
             <Input
-              type="email"
-              dataInput={{ ...register("user_type", { required: true }) }}
+              type="password"
+              dataInput={{ ...register("password", { required: true }) }}
               labelHTMLFor="email"
-              labelName="Correo: "
-              plaseholder="correo@example.com"
+              labelName="Contraseña:  "
+              plaseholder="password"
             />
             {errors.user_type && <span>Email field is required</span>}
-<div className={style.containerButton}>
-            <Input type="submit" className={style.bottomText + " " + style.button}  value="Enviar" notify={sendNotify} />
-            <br></br>
-            <Input type="reset" className={style.bottomText + " " + style.button} value="Limpiar" notify={resetNotify} />{" "}
-            <br></br>
-</div>
+            <div className={style.containerButton}>
+              <Input
+                type="submit"
+                className={style.bottomText + " " + style.button}
+                value="Enviar"
+                notify={sendNotify}
+              />
+              <br></br>
+              <Input
+                type="reset"
+                className={style.bottomText + " " + style.button}
+                value="Limpiar"
+                notify={resetNotify}
+              />{" "}
+              <br></br>
+            </div>
             <br></br>
           </>
         ) : (
@@ -90,9 +111,6 @@ export const Form: React.FC<formTypes> = ({ ...props }: formTypes) => {
         )}
       </form>
       <ToastContainer />
-
-
-
     </div>
   );
 };
