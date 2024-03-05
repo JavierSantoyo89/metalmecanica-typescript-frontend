@@ -1,6 +1,6 @@
 // import { Response } from 'fetch';
 
-function fetchPostemployee(data: object) {
+function fetchPost(data: object) {
     
     const myHeaders: Headers = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -23,4 +23,4 @@ fetch("https://backendportfolio-r0uf.onrender.com/metalmecanica/employee/create"
   .catch((error: Error) => console.error(error));
 }
 
-export default fetchPostemployee
+export default fetchPost

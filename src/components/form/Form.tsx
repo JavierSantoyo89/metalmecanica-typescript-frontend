@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Input } from "../common/Input";
 import style from "./Form.module.css";
-import fetchPostemployee from "../../data/fetchPostEmployee";
+import fetchPostemployee from "../../data/fetchPost";
 const resetNotify = () => {
   toast("Formulario reseteado");
 };
