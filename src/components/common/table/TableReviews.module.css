@@ -1,0 +1,17 @@
+.progressSection {
+    &:not(:first-of-type) {
+      border-left: rem(3px) solid light-dark(var(--mantine-color-white), var(--mantine-color-dark-7));
+    }
+  }
+
+.containerAcction{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: -15px;
+  margin-bottom: -20px;;
+  /* margin-right: 20px; */
+}

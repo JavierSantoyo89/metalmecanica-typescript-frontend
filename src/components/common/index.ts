@@ -1,3 +1,3 @@
-export * from './Button';
+export * from './button/Button';
 export * from './Input';
-export * from './Table';
+export * from './table/TableData';
