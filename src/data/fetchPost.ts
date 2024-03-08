@@ -1,5 +1,5 @@
 
-function fetchPost(data: object) {
+function fetchPost(data: object, urlDirection: string) {
   const myHeaders: Headers = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -13,10 +13,11 @@ function fetchPost(data: object) {
   };
 
   fetch(
-    "https://backendportfolio-r0uf.onrender.com/metalmecanica/employee/create",requestOptions)
+    `https://backendportfolio-r0uf.onrender.com${urlDirection}`,requestOptions)
     .then((response: Response) => response.text())
     .then((result: string) => console.log(result))
     .catch((error: Error) => console.error(error));
 }
 
 export default fetchPost;
+// /metalmecanica/employee/create
