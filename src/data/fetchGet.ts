@@ -22,7 +22,8 @@ const fetchGet = async (urlDirection: string) => {
     return {
       data: data.data,
       count: data.count,
-      SearchAll: data.SearchAll
+      SearchAll: data.SearchAll,
+      isLoading: true
     } 
     // (data.data, data.count);
   } catch (error) {

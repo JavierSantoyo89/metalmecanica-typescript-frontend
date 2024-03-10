@@ -1,24 +1,28 @@
 import { useEffect } from "react";
-// import Loading from "../../loading/Loading";
+import Loading from "../../loading/Loading";
 import fetchGet, { Datum } from "../../../data/fetchGet";
 import { useState } from "react";
 import { Table, Anchor } from "@mantine/core";
 import { Button } from "..";
 import style from "./TableReviews.module.css";
 const TableData = () => {
-  // const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
   const [list, setList] = useState<Datum[]>([]);
 
   useEffect(() => {
     fetchGet("/metalmecanica/employee/detailall")
       .then((data) => {
         setList(data.data);
-        // setLoading(false);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   }, []);
+
+  const handleDeletebuttonClick = (key: number) => {
+    console.log("Delete button clicked with key:", key);
+  };
 
   const rows = list.map((row) => {
     return (
@@ -39,7 +43,14 @@ const TableData = () => {
               />
             }
             {<Button buttonActionType="Edit" heightIcon={30} withIcon={40} />}
-            {<Button buttonActionType="Delete" heightIcon={30} withIcon={40} />}
+            {
+              <Button
+                buttonActionType="Delete"
+                heightIcon={30}
+                withIcon={40}
+                onClick={() => handleDeletebuttonClick(row.id_employee)}
+              />
+            }
           </div>
         </Table.Td>
         <Table.Td></Table.Td>
@@ -47,6 +58,9 @@ const TableData = () => {
     );
   });
 
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <Table.ScrollContainer minWidth={800}>
       <Table verticalSpacing="xs">
